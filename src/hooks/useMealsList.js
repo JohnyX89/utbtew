@@ -19,6 +19,7 @@ const useMealsList = () => {
         meals: response.data,
         error: ""
       });
+      
     } catch ({ message }) {
       setMeals({
         ...meals,

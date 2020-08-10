@@ -15,7 +15,6 @@ const MainPage = () => {
   const handleGoToAddingPage = () => push(`/add`)
 
   
-
   return (
     <Content>
       <HeadingOne>Final project</HeadingOne>

@@ -16,9 +16,15 @@ const DetailPage = () => {
 
   const detail = useMealDetail({ id });
 
+  console.log(detail);
+
 
   const handleRemoveClicked = async () => {
     await axios.delete(`https://exercise.cngroup.dk/api/recipes/${id}`);
+
+    localStorage.getItem(detail.mealDetails.title) &&
+    localStorage.removeItem(detail.mealDetails.title);
+
     push('/');
   }
 
@@ -43,7 +49,6 @@ const DetailPage = () => {
     try {
       await axios.post(`https://exercise.cngroup.dk/api/recipes/${detail.mealDetails._id}`, meal);
       push('/');
-
 
     } catch (error) {
       console.log('error');
@@ -79,7 +84,6 @@ const DetailPage = () => {
       onEditClick={() => handleShowEditClicked(detail)}
       onEditUpdateClick={() => handleEditUpdateClicked()}
       onEditCancelClick={() => handleEditCancelClicked()}
-
     />
 
 

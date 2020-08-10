@@ -28,10 +28,8 @@ const AddingPage = () => {
             preparationTime: preparationTime
         };
 
-
         return meal;
     }
-
 
     const handleAdd = async () => {
         const meal = createMeal(
@@ -40,21 +38,16 @@ const AddingPage = () => {
             preparationTime
         );
 
-        
         try {
             await axios.post("https://exercise.cngroup.dk/api/recipes", meal);
-            console.log(meal);
             localStorage.setItem(meal.title, meal.directions);
-            localStorage.setItem(meal.title, meal.directions, meal.preparationTime);
-            console.log(localStorage);
             push('/');
 
         } catch (error) {
-            // localStorage.setItem(meal.title, meal.directions, meal.preparationTime);
+            alert("Error");
             console.log(localStorage);
             push('/');
         }
-
     };
 
     const clearInputs = title === '' || directions === '' || preparationTime === '';
